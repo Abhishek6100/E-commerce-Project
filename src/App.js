@@ -3,11 +3,22 @@ import { Routes, Route } from "react-router-dom";
 import Homepage from "./components/homepage/homepage";
 import ProductDetails from "./components/productDetails/productDetails";
 import Cart from "./components/cart/cart";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Header from "./components/header/header";
 
 function App() {
   const [cart, setCart] = useState([]);
+
+  useEffect(() => {
+    const savedCart = JSON.parse(localStorage.getItem("cart"));
+    if (savedCart) {
+      setCart(savedCart);
+    }
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem("cart", JSON.stringify(cart));
+  }, [cart]);
 
   const addToCart = (product) => {
     setCart((prevCart) => {
@@ -43,9 +54,14 @@ function App() {
     });
   };
 
+  let cartCount = 0;
+  for (let i = 0; i < cart.length; i++) {
+    cartCount += cart[i].quantity;
+  }
+
   return (
     <>
-      <Header />
+      <Header cartCount={cartCount} />
       <Routes>
         <Route path="/" element={<Homepage addToCart={addToCart} />} />
         <Route path="/:id" element={<ProductDetails addToCart={addToCart} />} />

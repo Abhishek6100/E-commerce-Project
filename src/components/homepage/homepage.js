@@ -1,10 +1,9 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import "./homepage.css";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const Homepage = ({ addToCart }) => {
-  const navigate = useNavigate();
   const [data, setData] = useState([]);
 
   useEffect(() => {
@@ -38,7 +37,6 @@ const Homepage = ({ addToCart }) => {
               <button
                 onClick={() => {
                   addToCart(item);
-                  navigate("/cart");
                 }}
                 className="homepage_btn"
               >

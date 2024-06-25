@@ -38,7 +38,7 @@ const ProductDetails = ({ addToCart }) => {
         className="pdp_btn"
         onClick={() => {
           addToCart(prductData);
-          navigate("/cart");
+          // navigate("/cart");
         }}
       >
         Add to Cart

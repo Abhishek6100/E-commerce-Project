@@ -3,10 +3,7 @@
   background-color: #fff;
   margin-bottom: 30px;
 }
-.header {
-  max-width: 1250px;
-  margin: auto;
-}
+
 .homepage_heading {
   font-size: 30px;
   font-weight: 600;
@@ -18,15 +15,33 @@
 .header {
   display: flex;
   align-items: center;
-  column-gap: 50px;
+  max-width: 1250px;
+  margin: auto;
+  justify-content: space-between;
 }
 .logo {
   width: 160px;
   height: 85px;
 }
+.cartcount_div{
+  margin-right: 40px;
+}
+.cart_length {
+  position: absolute;
+  margin-top: -14px;
+  margin-left: 28px;
+  color: white;
+  font-size: 24px;
+  font-weight: 600;
+  width: 28px;
+  height: 35px;
+  background-color: red;
+  border-radius: 50%;
+  text-align: center;
+}
 @media (max-width: 720px) {
   .homepage_heading {
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 500;
     text-align: center;
     margin: 20px 0px;
@@ -45,5 +60,8 @@
   .logo {
     width: 160px;
     height: 85px;
+  }
+  .cartcount_div{
+    margin-right: 14px;
   }
 }
